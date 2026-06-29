@@ -22,6 +22,12 @@ FoodRoutes.post(
 FoodRoutes.get("/get-all-food", getAllFood);
 FoodRoutes.get("/get-single/:id", getSingleFood);
 FoodRoutes.delete("/delete/:id", isAuthenticated, isAdmin, deleteFood);
-FoodRoutes.put("/update/:id", isAuthenticated, isAdmin, updateFood);
+FoodRoutes.put(
+  "/update/:id",
+  isAuthenticated,
+  isAdmin,
+  upload.single("image"),
+  updateFood,
+);
 
 export default FoodRoutes;
